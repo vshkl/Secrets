@@ -1,37 +1,19 @@
 import React from 'react'
-import { Dimensions, View, Text } from 'react-native'
 import { TabView } from 'react-native-tab-view'
 
 import FilesList from '../../components/organisms/FilesList'
+import NotesList from '../../components/organisms/NotesList'
 
-const dummyFiles = [1, 2, 3, 4, 5]
-  .map((it) => ({
-    id: it.toString(),
-    title: `File ${it}`,
-    size: it * 42,
-    expiry: new Date(),
-  }))
+import { tabsInitialLayout } from './styles'
 
-const Files = () => (
-  <View>
-    <FilesList
-      files={dummyFiles}
-      onFilePress={(id) => {
-        console.log(id)
-      }}
-    />
-  </View>
-)
-
-const Notes = () => (
-  <View>
-    <Text>Files</Text>
-  </View>
-)
-
-const initialLayout = { width: Dimensions.get('window').width }
-
-const HomeScreenView = () => {
+const HomeScreenView: React.FC<{
+  files: any,
+  notes: any,
+  onFilePress: (id: string) => void,
+  onNotePress: (id: string) => void,
+}> = ({
+  files, notes, onFilePress, onNotePress,
+}) => {
   const [index, setIndex] = React.useState(0)
   const [routes] = React.useState([
     { key: 'files', title: 'Files' },
@@ -44,13 +26,23 @@ const HomeScreenView = () => {
       renderScene={({ route }) => {
         switch (route.key) {
           case 'files':
-            return <Files/>;
+            return (
+              <FilesList
+                files={files}
+                onFilePress={onFilePress}
+              />
+            );
           case 'notes':
-            return <Notes/>;
+            return (
+              <NotesList
+                notes={notes}
+                onNotePress={onNotePress}
+              />
+            );
         }
       }}
       onIndexChange={setIndex}
-      initialLayout={initialLayout}
+      initialLayout={tabsInitialLayout}
     />
   )
 }
