@@ -8,7 +8,10 @@ module.exports = {
   ],
   rules: {
     'arrow-body-style': 'off',
+    'consistent-return': 'off',
+    'default-case': 'off',
     'semi': 'off',
+    'react/prop-types': 'off',
     'react/jsx-tag-spacing': ['error', {
       'closingSlash': 'never',
       'beforeSelfClosing': 'never',
