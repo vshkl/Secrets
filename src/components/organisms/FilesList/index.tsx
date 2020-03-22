@@ -1,7 +1,7 @@
 import React from 'react'
 import { FlatList } from 'react-native'
 
-import FilesListItem from '../../molecules/FileListItem'
+import FilesListItem from '../../molecules/FilesListItem'
 
 type File = {
   id: string,
