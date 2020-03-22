@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigation } from '@react-navigation/native'
 
 import HomeScreenView from './view'
 
@@ -18,6 +19,8 @@ const dummyNotes = [1, 2, 3, 4, 5]
   }))
 
 const HomeScreenContainer = () => {
+  const navigation = useNavigation()
+
   return (
     <HomeScreenView
       files={dummyFiles}
@@ -28,12 +31,8 @@ const HomeScreenContainer = () => {
       onNotePress={(id: string) => {
         console.log(id)
       }}
-      onAddFile={() => {
-        console.log('Add file')
-      }}
-      onAddNote={() => {
-        console.log('Add note')
-      }}
+      onAddFile={() => navigation.navigate('AddFile')}
+      onAddNote={() => navigation.navigate('AddNote')}
     />
   )
 }
