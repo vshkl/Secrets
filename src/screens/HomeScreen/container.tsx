@@ -28,6 +28,12 @@ const HomeScreenContainer = () => {
       onNotePress={(id: string) => {
         console.log(id)
       }}
+      onAddFile={() => {
+        console.log('Add file')
+      }}
+      onAddNote={() => {
+        console.log('Add note')
+      }}
     />
   )
 }
