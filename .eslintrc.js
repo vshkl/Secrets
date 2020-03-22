@@ -7,6 +7,7 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
+    'arrow-body-style': 'off',
     'semi': 'off',
     'react/jsx-tag-spacing': ['error', {
       'closingSlash': 'never',
@@ -20,5 +21,7 @@ module.exports = {
         '.tsx',
       ],
     }],
+    'import/no-unresolved': 'off',
+    'import/extensions': 'off',
   },
 };
