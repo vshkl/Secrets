@@ -1,7 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 
 import React from 'react'
-import { NavigationContainer } from '@react-navigation/native'
+import { NavigationContainer, RouteProp } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { Close } from '../resources/icons'
 
@@ -10,7 +10,16 @@ import AddNoteScreen from '../screens/AddNoteScreen'
 import HomeScreen from '../screens/HomeScreen'
 import NoteDetailsScreen from '../screens/NoteDetailsScreen'
 
-const Stack = createStackNavigator()
+type MainStackParamList = {
+  AddFile: undefined,
+  AddNote: undefined,
+  Home: undefined,
+  NoteDetails: { noteId: string },
+}
+
+export type NoteDetailsRouteProp = RouteProp<MainStackParamList, 'NoteDetails'>
+
+const Stack = createStackNavigator<MainStackParamList>()
 
 const MainNavigator = () => {
   return (
