@@ -7,7 +7,13 @@ export default StyleSheet.create({
     paddingVertical: Platform.OS === 'android' ? 8 : 5,
     backgroundColor: '#FAFAFA',
   },
+  containerExpiry: {
+    paddingBottom: Platform.OS === 'android' ? 8 : 5,
+  },
   textNote: {
     fontSize: 18,
+  },
+  textExpiry: {
+    fontSize: 14,
   },
 })
