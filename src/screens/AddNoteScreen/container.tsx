@@ -7,20 +7,23 @@ import HeaderButton from '../../components/atoms/HeaderButton'
 import AddNoteScreenView from './view'
 
 const AddNoteScreenContainer = () => {
+  const [noteText, setNoteText] = React.useState('')
   const navigation = useNavigation()
 
   React.useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <HeaderButton onPress={() => console.log('Save note')}>
+        <HeaderButton onPress={() => console.log(noteText)}>
           <Text>SAVE</Text>
         </HeaderButton>
       ),
     })
-  }, [navigation])
+  }, [navigation, noteText])
 
   return (
-    <AddNoteScreenView/>
+    <AddNoteScreenView
+      onNoteTextChange={setNoteText}
+    />
   )
 }
 
