@@ -5,7 +5,7 @@ import { createStructuredSelector } from 'reselect'
 import { useNavigation } from '@react-navigation/native'
 
 import HeaderButton from '../../components/atoms/HeaderButton'
-import addNoteActions from '../../store/models/addNote/actions'
+import notesActions from '../../store/models/notes/actions'
 
 import AddNoteScreenView from './view'
 
@@ -37,7 +37,7 @@ const mapStateToProps = createStructuredSelector({
 })
 
 const mapDispatchToProps = {
-  addNote: addNoteActions.addNote.init,
+  addNote: notesActions.addNote.init,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddNoteScreenContainer)

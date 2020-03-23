@@ -2,12 +2,7 @@ import React from 'react'
 import { FlatList } from 'react-native'
 
 import NotesListItem from '../../molecules/NotesListItem'
-
-type Note = {
-  id: string,
-  title: string,
-  expiry: Date,
-}
+import { Note } from '../../../store/models/notes/types'
 
 const NotesList: React.FC<{
   notes: Note[],
@@ -16,11 +11,11 @@ const NotesList: React.FC<{
   return (
     <FlatList
       data={notes}
-      keyExtractor={(item: Note) => item.id}
+      keyExtractor={(item: Note) => item.key}
       renderItem={({ item }: { item: Note }) => (
         <NotesListItem
-          id={item.id}
-          title={item.title}
+          id={item.key}
+          title={item.text}
           expiry={item.expiry}
           onPress={onNotePress}
         />

@@ -4,9 +4,16 @@ const addNote = {
   failure: 'ADD_NOTE.FAILURE',
 }
 
-export type AddNoteState = {
+export type Note = {
   text: string,
-  status: 'idle' | 'loading' | 'success' | 'failure',
+  key: string,
+  link: string,
+  expiry: Date,
+}
+
+export type NotesState = {
+  notes: Note[],
+  addingStatus: 'idle' | 'loading' | 'success' | 'failure',
 }
 
 export type AddNoteAction = {

@@ -16,7 +16,7 @@ const FilesListItem: React.FC<{
     <TouchableOpacity style={styles.containerMain} onPress={() => onPress(id)}>
       <Text style={styles.textTitle}>{title}</Text>
       <View style={styles.containerRow}>
-        <Text style={styles.textSubtitle}>{expiry.toDateString()}</Text>
+        <Text style={styles.textSubtitle}>{expiry.toString()}</Text>
         <Text style={styles.textSubtitle}>{size}</Text>
       </View>
     </TouchableOpacity>

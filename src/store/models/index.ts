@@ -1,16 +1,16 @@
 import { all, call } from 'redux-saga/effects'
 
-import AddNoteReducer from './addNote/reducer'
+import NoteReducer from './notes/reducer'
 
-import AddNoteSaga from './addNote/saga'
+import NoteSaga from './notes/saga'
 
 export default {
   reducers: {
-    addNote: AddNoteReducer,
+    notes: NoteReducer,
   },
   sagas: function* watch() {
     yield all([
-      call(AddNoteSaga),
+      call(NoteSaga),
     ])
   },
 }

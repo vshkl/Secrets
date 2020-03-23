@@ -14,7 +14,7 @@ const NotesListItem: React.FC<{
   return (
     <TouchableOpacity style={styles.containerMain} onPress={() => onPress(id)}>
       <Text style={styles.textTitle}>{title}</Text>
-      <Text style={styles.textSubtitle}>{expiry.toDateString()}</Text>
+      <Text style={styles.textSubtitle}>{expiry.toString()}</Text>
     </TouchableOpacity>
   )
 }

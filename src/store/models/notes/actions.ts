@@ -1,4 +1,4 @@
-import types, { AddNoteAction } from './types'
+import types, { AddNoteAction, Note } from './types'
 
 export default {
   addNote: {
@@ -6,9 +6,9 @@ export default {
       type: types.addNote.init,
       payload: { text },
     }),
-    success: (): AddNoteAction => ({
+    success: (note: Note): AddNoteAction => ({
       type: types.addNote.success,
-      payload: null,
+      payload: { note },
     }),
     failure: (): AddNoteAction => ({
       type: types.addNote.failure,

@@ -1,7 +1,11 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { createStructuredSelector } from 'reselect'
 import { useNavigation } from '@react-navigation/native'
 
 import HomeScreenView from './view'
+import notesSelectors from '../../store/models/notes/selectors'
+import { Note } from '../../store/models/notes/types'
 
 const dummyFiles = [1, 2, 3, 4, 5]
   .map((it) => ({
@@ -18,13 +22,15 @@ const dummyNotes = [1, 2, 3, 4, 5]
     expiry: new Date(),
   }))
 
-const HomeScreenContainer = () => {
+const HomeScreenContainer: React.FC<{
+  notes: Note[],
+}> = ({ notes }) => {
   const navigation = useNavigation()
 
   return (
     <HomeScreenView
       files={dummyFiles}
-      notes={dummyNotes}
+      notes={notes}
       onFilePress={(id: string) => {
         console.log(id)
       }}
@@ -37,4 +43,11 @@ const HomeScreenContainer = () => {
   )
 }
 
-export default HomeScreenContainer
+const mapStateToProps = createStructuredSelector({
+  notes: notesSelectors.notesSelector,
+})
+
+const mapDispatchToProps = {
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeScreenContainer)
