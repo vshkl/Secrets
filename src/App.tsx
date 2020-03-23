@@ -1,9 +1,6 @@
 import React from 'react'
-import { Text } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
-
-import HeaderButton from './components/atoms/HeaderButton'
 import { Close } from './resources/icons'
 
 import AddFileScreen from './screens/AddFileScreen'
@@ -24,11 +21,6 @@ const App = () => {
             headerBackImage: () => (
               <Close color="#000000" height={24} width={24}/>
             ),
-            headerRight: () => (
-              <HeaderButton onPress={() => {}}>
-                <Text>SAVE</Text>
-              </HeaderButton>
-            ),
           }}
         />
         <Stack.Screen
@@ -38,11 +30,6 @@ const App = () => {
             title: 'New note',
             headerBackImage: () => (
               <Close color="#000000" height={24} width={24}/>
-            ),
-            headerRight: () => (
-              <HeaderButton onPress={() => {}}>
-                <Text>SAVE</Text>
-              </HeaderButton>
             ),
           }}
         />
