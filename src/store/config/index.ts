@@ -22,6 +22,7 @@ const prepareStore = () => {
     persistedReducer,
     applyMiddleware(sagaMiddleware),
   )
+  // @ts-ignore
   const persistor = persistStore(store)
 
   sagaMiddleware.run(models.sagas)

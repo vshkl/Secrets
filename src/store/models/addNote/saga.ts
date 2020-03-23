@@ -19,6 +19,7 @@ function* addNote(noteText: string) {
 export default function* () {
   yield all([
     call(function* watch() {
+      // @ts-ignore
       yield takeLeading(types.addNote.init, addNote)
     }),
   ])
