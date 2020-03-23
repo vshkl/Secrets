@@ -8,6 +8,7 @@ import { Close } from '../resources/icons'
 import AddFileScreen from '../screens/AddFileScreen'
 import AddNoteScreen from '../screens/AddNoteScreen'
 import HomeScreen from '../screens/HomeScreen'
+import NoteDetailsScreen from '../screens/NoteDetailsScreen'
 
 const Stack = createStackNavigator()
 
@@ -39,6 +40,11 @@ const MainNavigator = () => {
           name="Home"
           component={HomeScreen}
           options={{ title: 'Home' }}
+        />
+        <Stack.Screen
+          name="NoteDetails"
+          component={NoteDetailsScreen}
+          options={{ title: 'Note details' }}
         />
       </Stack.Navigator>
     </NavigationContainer>

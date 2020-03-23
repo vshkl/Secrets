@@ -34,9 +34,7 @@ const HomeScreenContainer: React.FC<{
       onFilePress={(id: string) => {
         console.log(id)
       }}
-      onNotePress={(id: string) => {
-        console.log(id)
-      }}
+      onNotePress={(id: string) => navigation.navigate('NoteDetails')}
       onAddFile={() => navigation.navigate('AddFile')}
       onAddNote={() => navigation.navigate('AddNote')}
     />
