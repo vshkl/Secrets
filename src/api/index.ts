@@ -1,29 +1,18 @@
 import axios from 'axios'
-
-const apiClient = () => {
-  return axios.create({
-    baseURL: 'https://file.io',
-  })
-}
+import qs from 'qs'
 
 const postFile = (file: string) => {
-  return apiClient()
-    .post('', {
-      data: { file },
-      params: { expires: '1W' },
-    })
-    .then((response) => console.log(response))
-    .catch((error) => console.log(error))
+  return null
 }
 
 const postNote = (text: string) => {
-  return apiClient()
-    .post('', {
-      data: { text },
-      params: { expires: '1W' },
-    })
-    .then((response) => console.log(response))
-    .catch((error) => console.log(error))
+  return axios({
+    method: 'post',
+    url: 'https://file.io',
+    data: qs.stringify({ text }),
+    params: { expires: '14d' },
+    headers: { 'content-type': 'application/x-www-form-urlencoded;charset=utf-8' },
+  })
 }
 
 export default {

@@ -1,19 +1,24 @@
 import React from 'react'
 import { Text } from 'react-native'
+import { connect } from 'react-redux'
+import { createStructuredSelector } from 'reselect'
 import { useNavigation } from '@react-navigation/native'
 
 import HeaderButton from '../../components/atoms/HeaderButton'
+import addNoteActions from '../../store/models/addNote/actions'
 
 import AddNoteScreenView from './view'
 
-const AddNoteScreenContainer = () => {
+const AddNoteScreenContainer: React.FC<{
+  addNote: (noteText: string) => void,
+}> = ({ addNote }) => {
   const [noteText, setNoteText] = React.useState('')
   const navigation = useNavigation()
 
   React.useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <HeaderButton onPress={() => console.log(noteText)}>
+        <HeaderButton onPress={() => addNote(noteText)}>
           <Text>SAVE</Text>
         </HeaderButton>
       ),
@@ -27,4 +32,12 @@ const AddNoteScreenContainer = () => {
   )
 }
 
-export default AddNoteScreenContainer
+
+const mapStateToProps = createStructuredSelector({
+})
+
+const mapDispatchToProps = {
+  addNote: addNoteActions.addNote.init,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddNoteScreenContainer)
