@@ -18,7 +18,12 @@ const AddNoteScreenContainer: React.FC<{
   React.useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <HeaderButton onPress={() => addNote(noteText)}>
+        <HeaderButton
+          onPress={() => {
+            addNote(noteText)
+            navigation.goBack()
+          }}
+        >
           <Text>SAVE</Text>
         </HeaderButton>
       ),
@@ -33,8 +38,7 @@ const AddNoteScreenContainer: React.FC<{
 }
 
 
-const mapStateToProps = createStructuredSelector({
-})
+const mapStateToProps = createStructuredSelector({})
 
 const mapDispatchToProps = {
   addNote: notesActions.addNote.init,
