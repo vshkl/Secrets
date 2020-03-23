@@ -10,7 +10,7 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
   },
   textTitle: {
-    fontSize: 20,
+    fontSize: 18,
   },
   textSubtitle: {
     fontSize: 14,

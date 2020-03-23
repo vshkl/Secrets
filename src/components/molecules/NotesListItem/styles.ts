@@ -6,7 +6,7 @@ export default StyleSheet.create({
     paddingVertical: Platform.OS === 'android' ? 8 : 5,
   },
   textTitle: {
-    fontSize: 20,
+    fontSize: 18,
   },
   textSubtitle: {
     fontSize: 14,
