@@ -15,25 +15,14 @@ const dummyFiles = [1, 2, 3, 4, 5]
     expiry: new Date(),
   }))
 
-const dummyNotes = [1, 2, 3, 4, 5]
-  .map((it) => ({
-    id: it.toString(),
-    title: `Note ${it}`,
-    expiry: new Date(),
-  }))
-
-const HomeScreenContainer: React.FC<{
-  notes: Note[],
-}> = ({ notes }) => {
+const HomeScreenContainer: React.FC<{ notes: Note[] }> = ({ notes }) => {
   const navigation = useNavigation()
 
   return (
     <HomeScreenView
       files={dummyFiles}
       notes={notes}
-      onFilePress={(id: string) => {
-        console.log(id)
-      }}
+      onFilePress={(id: string) => console.log(id)}
       onNotePress={(id: string) => navigation.navigate('NoteDetails', { noteId: id })}
       onAddFile={() => navigation.navigate('AddFile')}
       onAddNote={() => navigation.navigate('AddNote')}

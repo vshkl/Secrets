@@ -1,5 +1,5 @@
 import React from 'react'
-import { TouchableOpacity, Text } from 'react-native'
+import { Text, TouchableOpacity, View } from 'react-native'
 import moment from 'moment'
 
 import styles from './styles'
@@ -14,8 +14,10 @@ const NotesListItem: React.FC<{
 }) => {
   return (
     <TouchableOpacity style={styles.containerMain} onPress={() => onPress(id)}>
-      <Text style={styles.textTitle} numberOfLines={2} ellipsizeMode="tail">{title}</Text>
-      <Text style={styles.textSubtitle}>{moment(expiry).fromNow()}</Text>
+      <View style={styles.containerTitle}>
+        <Text style={styles.textTitle} numberOfLines={2} ellipsizeMode="tail">{title}</Text>
+      </View>
+      <Text style={styles.textSubtitle}>{`Expires ${moment(expiry).fromNow()}`}</Text>
     </TouchableOpacity>
   )
 }

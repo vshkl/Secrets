@@ -5,10 +5,13 @@ export default StyleSheet.create({
     paddingHorizontal: Platform.OS === 'android' ? 16 : 15,
     paddingVertical: Platform.OS === 'android' ? 8 : 5,
   },
+  containerTitle: {
+    paddingBottom: Platform.OS === 'android' ? 4 : 5,
+  },
   textTitle: {
     fontSize: 18,
   },
   textSubtitle: {
-    fontSize: 14,
+    fontSize: 12,
   },
 })

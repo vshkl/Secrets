@@ -48,7 +48,7 @@ const MainNavigator = () => {
         <Stack.Screen
           name="Home"
           component={HomeScreen}
-          options={{ title: 'Home' }}
+          options={{ title: 'Secret' }}
         />
         <Stack.Screen
           name="NoteDetails"
