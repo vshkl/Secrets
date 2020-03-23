@@ -1,17 +1,21 @@
 import React from 'react'
-import { useNavigation, useRoute } from '@react-navigation/native'
+import { connect } from 'react-redux'
+import { createStructuredSelector } from 'reselect'
+import { useNavigation } from '@react-navigation/native'
 
 import HeaderButton from '../../components/atoms/HeaderButton'
 import { Share } from '../../resources/icons'
 import { NoteDetailsRouteProp } from '../../navigation'
 
 import NoteDetailsScreenView from './view'
+import notesSelectors from '../../store/models/notes/selectors'
+import { Note } from '../../store/models/notes/types'
 
-const NoteDetailsScreenContainer = () => {
+const NoteDetailsScreenContainer: React.FC<{
+  route: NoteDetailsRouteProp,
+  note: Note,
+}> = ({ note }) => {
   const navigation = useNavigation()
-  const route = useRoute<NoteDetailsRouteProp>()
-
-  console.log(route.params.noteId)
 
   React.useLayoutEffect(() => {
     navigation.setOptions({
@@ -24,8 +28,17 @@ const NoteDetailsScreenContainer = () => {
   }, [navigation])
 
   return (
-    <NoteDetailsScreenView/>
+    <NoteDetailsScreenView
+      note={note}
+    />
   )
 }
 
-export default NoteDetailsScreenContainer
+const mapStateToProps = createStructuredSelector({
+  note: notesSelectors.noteByIdSelector,
+})
+
+const mapDispatchToProps = {
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NoteDetailsScreenContainer)
